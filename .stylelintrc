@@ -1,5 +1,5 @@
 {
-  "extends": ["stylelint-config-recommended-scss", "stylelint-config-html/svelte"],
+  "extends": ["stylelint-config-recommended-scss", "stylelint-config-html/svelte", "stylelint-config-html/html"],
   "rules": {
     "color-named": "never",
     "font-family-name-quotes": "always-where-required",

@@ -1,8 +1,10 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npx --no -- commitlint --edit
+npx --no-install commitlint --config commitlint.config.cjs --edit $1
 
-npx prettier --write .
+npx prettier --ignore-path .gitignore --check --plugin-search-dir=. "src"
 
-npx eslint .
+npx eslint --ignore-path .gitignore "src"
+
+npx stylelint --ignore-path .gitignore "src"
