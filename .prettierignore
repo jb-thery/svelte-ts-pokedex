@@ -1,0 +1,6 @@
+node_modules
+# Ignore artifacts:
+coverage
+config.babel
+/.svelte-kit
+

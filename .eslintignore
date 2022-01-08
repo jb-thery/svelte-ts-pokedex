@@ -1,0 +1,6 @@
+*.css
+*.scss
+*.svg
+config.babel
+/.svelte-kit
+node_modules

@@ -1,19 +1,19 @@
 <script lang="ts">
-	function hello(name: string): string {
-		return `Hello ${name} !`;
-	}
+  function hello(name: string): string {
+    return `Hello ${name} !`;
+  }
 
-	const greet = hello('World');
+  const greet = hello('World');
 </script>
 
 <h1>{greet}</h1>
 
 <style lang="scss" global>
-	h1 {
-		color: $primary;
-	}
+  body {
+    background: #f5f5f5;
 
-	body {
-		background: #f5f5f5;
-	}
+    h1 {
+      color: $primary;
+    }
+  }
 </style>
