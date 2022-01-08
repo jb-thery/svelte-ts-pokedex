@@ -6,7 +6,7 @@ const config = {
   preprocess: [
     preprocess({
       scss: {
-        prependData: `@import 'src/styles/variables.scss';`,
+        prependData: `@import 'src/styles/global.scss';`,
         outputStyle: 'compressed'
       },
       preserve: ['ld+json']

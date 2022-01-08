@@ -1,0 +1,60 @@
+/* COLORS
+*******************************************************/
+$red: #d84b42;
+
+$grey: #929395;
+$grey-light: #eeeeee;
+$white: #ffffff;
+
+$green: #92caa7;
+$green-light: #bbddc6;
+
+/* TYPOGRAPHY
+*******************************************************/
+
+// Fonts family
+$heading-font: 'Raleway', sans-serif;
+$text-font: 'Roboto', sans-serif;
+
+// Fonts size
+$m-mobile: 1rem;
+$m: 2rem;
+
+$l-mobile: 2.5rem;
+$l: 3rem;
+
+$xl-mobile: 3.5rem;
+$xl: 3.5rem;
+
+/* GLOBAL STYLES
+*******************************************************/
+
+// helpers
+.centered-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centered-y-flex {
+  display: flex;
+  align-items: center;
+}
+
+.app-grid {
+  display: grid;
+  grid-gap: 20px;
+}
+
+// Reset
+a,
+p,
+i,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}

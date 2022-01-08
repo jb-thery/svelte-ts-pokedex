@@ -1,19 +1,42 @@
-<script lang="ts">
-  function hello(name: string): string {
-    return `Hello ${name} !`;
-  }
-
-  const greet = hello('World');
+<script>
+  import PokeCard from '../components/cards/PokeCard.svelte';
+  import SearchInput from '../components/inputs/SearchInput.svelte';
+  import Pagination from '../components/pagination/Pagination.svelte';
 </script>
 
-<h1>{greet}</h1>
+<svelte:head>
+  <title>Svelte Typescript Pokedex</title>
 
-<style lang="scss" global>
-  body {
-    background: #f5f5f5;
+  <meta
+    name="description"
+    content="Simple svelte typescript pokedex for testing the framework svelete"
+  />
+</svelte:head>
 
-    h1 {
-      color: $primary;
-    }
+<header>
+  <h1>Svelte Ts Pokédex</h1>
+</header>
+
+<section class="app-grid">
+  <SearchInput />
+</section>
+
+<section class="app-grid">
+  <PokeCard />
+  <PokeCard />
+  <PokeCard />
+  <PokeCard />
+  <PokeCard />
+  <PokeCard />
+  <PokeCard />
+</section>
+
+<nav>
+  <Pagination />
+</nav>
+
+<style lang="scss">
+  h1 {
+    color: $red;
   }
 </style>
