@@ -24,11 +24,6 @@
     }
   }
 
-  body {
-    position: relative;
-    overflow-x: hidden;
-  }
-
   .centered-flex {
     display: flex;
     justify-content: center;

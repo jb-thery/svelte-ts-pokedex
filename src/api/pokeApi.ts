@@ -3,7 +3,7 @@ import type { Pokemon, Pokemons } from '../types';
 
 export const getPokemons = async () => {
   try {
-    return await Http.get<Pokemons>('/pokemon?limit=10');
+    return await Http.get<Pokemons>('/pokemon?limit=200');
   } catch (error) {
     console.error(error);
   }

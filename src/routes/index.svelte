@@ -1,18 +1,35 @@
 <script lang="ts">
-  import PokeCard from '../components/cards/PokeCard.svelte';
   import SearchInput from '../components/inputs/SearchInput.svelte';
-  import Pagination from '../components/pagination/Pagination.svelte';
   import { onMount } from 'svelte';
-  import { getPokemons } from '../api/pokeApi';
-  import type { Pokemons } from '../types';
+  import { getPokemon, getPokemons } from '../api/pokeApi';
+  import PokemonList from '../components/pagination/PokemonList.svelte';
+  import SkeletonLoaderCard from '../components/cards/SkeletonLoaderCard.svelte';
+  import { pokemons } from '../stores/global';
 
-  let pokemons: Array<Pokemons> = [];
+  let loading = true;
 
-  onMount(async () => {
-    const { results } = await getPokemons();
-
-    pokemons = results;
+  onMount(() => {
+    getPokemonList();
   });
+
+  async function getPokemonList(): Promise<void> {
+    try {
+      loading = true;
+
+      const { results } = await getPokemons();
+
+      const pokemonpPromise = results.map((pokemon) =>
+        getPokemon(pokemon.name)
+      );
+
+      const allPokemonData = await Promise.all(pokemonpPromise);
+      pokemons.set(allPokemonData);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      loading = false;
+    }
+  }
 </script>
 
 <svelte:head>
@@ -33,14 +50,12 @@
 </section>
 
 <section class="app-grid">
-  {#each pokemons as pokemon}
-    <PokeCard pokemonName={pokemon.name} />
-  {/each}
+  {#if !loading}
+    <PokemonList />
+  {:else}
+    <SkeletonLoaderCard />
+  {/if}
 </section>
-
-<nav>
-  <Pagination />
-</nav>
 
 <style lang="scss">
   h1 {

@@ -2,20 +2,19 @@
   import { goto } from '$app/navigation';
   import { onDestroy, onMount } from 'svelte';
   import { capitalizeWord, listToString } from '../../helpers/globals.ts';
-  import { getPokemon } from '../../api/pokeApi';
+  import { currentPage } from '../../stores/global';
+  import Loader from '../loaders/Loader.svelte';
 
-  export let pokemonName: string;
+  export let pokemonName = null;
+  export let pokemonImage = null;
+  export let pokemonTypes = null;
+  export let pokemonPokemonId = null;
 
-  let pokemonImage = null;
-  let pokemonTypes = null;
-  let pokemonPokemonId = null;
-
-  let loading = true;
   let interval = null;
   let flipImage = 1;
+  let imageLoading = true;
 
   onMount(() => {
-    getPokemonInfos();
     animePokemonImage();
   });
 
@@ -23,15 +22,9 @@
     clearInterval(interval);
   });
 
-  async function getPokemonInfos() {
-    const { sprites, types, order } = await getPokemon(pokemonName);
-
-    pokemonImage = sprites.front_default;
-    pokemonTypes = types;
-    pokemonPokemonId = order;
-
-    loading = false;
-  }
+  currentPage.subscribe(() => {
+    imageLoading = true;
+  });
 
   function animePokemonImage() {
     let count = 0;
@@ -71,34 +64,44 @@
 
     return colorsDict[typesName] || genColor('#d2d2d2', '#eeeeee');
   }
+
+  function imageIsLoading(): void {
+    imageLoading = false;
+  }
+
+  function imagesStyles(imageLoading, flipImage): string {
+    return `opacity: ${imageLoading ? 0 : 1}; position: ${
+      imageLoading ? 'absolute' : 'relative'
+    }; transform: scaleX(${flipImage})`;
+  }
 </script>
 
-{#if !loading}
-  <article
-    class="centered-y-flex"
-    on:click={handleNavigation}
-    style={getCardColor()}
-  >
-    <img
-      class="pokemon-image"
-      src={pokemonImage}
-      alt={pokemonName}
-      style="transform: scaleX({flipImage})"
-    />
+<article
+  class="centered-y-flex"
+  on:click={handleNavigation}
+  style={getCardColor()}
+>
+  <img
+    style={imagesStyles(imageLoading, flipImage)}
+    class="pokemon-image"
+    src={pokemonImage}
+    alt={pokemonName}
+    on:load={imageIsLoading}
+  />
+  {#if imageLoading}
+    <Loader />
+  {/if}
 
-    <div class="infos">
-      <h2>{capitalizeWord(pokemonName)}</h2>
+  <div class="infos">
+    <h2>{capitalizeWord(pokemonName)}</h2>
 
-      <h3 class="types">
-        {listToString(
-          pokemonTypes.map((type) => capitalizeWord(type.type.name))
-        )}
-      </h3>
-    </div>
+    <h3 class="types">
+      {listToString(pokemonTypes.map((type) => capitalizeWord(type.type.name)))}
+    </h3>
+  </div>
 
-    <i class="list-index"><span>#</span>{displayIndex(pokemonPokemonId)}</i>
-  </article>
-{/if}
+  <i class="list-index"><span>#</span>{displayIndex(pokemonPokemonId)}</i>
+</article>
 
 <style lang="scss">
   article {

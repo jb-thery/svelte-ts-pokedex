@@ -32,7 +32,8 @@
     "src/types/**",
     "src/api/**",
     "src/helpers/**",
-    "src/services/**"
+    "src/services/**",
+    "src/stores/**"
   ],
   "defaultSeverity": "error"
 }
