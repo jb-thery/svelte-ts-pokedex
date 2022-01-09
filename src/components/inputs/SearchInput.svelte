@@ -1,6 +1,21 @@
 <script>
   import Icon from 'mdi-svelte';
   import { mdiMagnify } from '@mdi/js';
+  import { allPokemons, pokemons } from '../../stores/global';
+
+  let allPokemonsBase = [];
+
+  allPokemons.subscribe((value) => {
+    allPokemonsBase = value;
+  });
+
+  function handleSearch(event) {
+    const { value } = event.target;
+
+    pokemons.update(() =>
+      allPokemonsBase.filter((pokemon) => pokemon.name.includes(value))
+    );
+  }
 </script>
 
 <article>
@@ -9,7 +24,12 @@
       <Icon path={mdiMagnify} color="#929395" />
     </label>
 
-    <input id="search" type="text" />
+    <input
+      id="search"
+      type="text"
+      on:input={handleSearch}
+      placeholder="Filter pokemon by name"
+    />
   </div>
 
   <p>
@@ -32,6 +52,10 @@
       outline: none;
       border: none;
       color: $grey;
+
+      &::placeholder {
+        opacity: 0.5;
+      }
     }
   }
 

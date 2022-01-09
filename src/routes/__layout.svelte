@@ -47,7 +47,7 @@
   }
 
   .picto {
-    position: absolute;
+    position: fixed;
     top: -190px;
     right: -190px;
     opacity: 0.09;

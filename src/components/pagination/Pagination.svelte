@@ -1,18 +1,22 @@
-<script>
+<script lang="ts">
   import PaginationButton from './PaginationButton.svelte';
-  import { itemsPerPage } from '../../stores/global.ts';
+  import { itemsPerPage, pokemons } from '../../stores/global.ts';
 
-  export let listLength;
+  let buttonMatrix = [];
 
-  function getPaginationButton() {
+  pokemons.subscribe((list) => {
+    getPaginationButton(list.length);
+  });
+
+  function getPaginationButton(listLength): void {
     const buttonsListLength = Math.ceil(listLength / $itemsPerPage);
 
-    return new Array(buttonsListLength).fill(null);
+    buttonMatrix = new Array(buttonsListLength).fill(null);
   }
 </script>
 
 <div>
-  {#each getPaginationButton() as page, i}
+  {#each buttonMatrix as page, i}
     <PaginationButton page={i} />
   {/each}
 </div>

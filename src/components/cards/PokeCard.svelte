@@ -2,7 +2,7 @@
   import { goto } from '$app/navigation';
   import { onDestroy, onMount } from 'svelte';
   import { capitalizeWord, listToString } from '../../helpers/globals.ts';
-  import { currentPage } from '../../stores/global';
+  import { currentPage, pokemons } from '../../stores/global';
   import Loader from '../loaders/Loader.svelte';
 
   export let pokemonName = null;
@@ -26,6 +26,10 @@
     imageLoading = true;
   });
 
+  pokemons.subscribe(() => {
+    imageLoading = true;
+  });
+
   function animePokemonImage() {
     let count = 0;
 
@@ -40,7 +44,7 @@
   }
 
   function handleNavigation(): void {
-    goto(`/pokemon/${name}`);
+    goto(`/pokemon/${pokemonName}`);
   }
 
   function displayIndex(id: string | number): string | number {
@@ -58,13 +62,16 @@
 
     const colorsDict = {
       grass: genColor('#b3e1b2', '#f1fff6'),
+      bug: genColor('#b3e1b2', '#f1fff6'),
       fire: genColor('#fcd2b1', '#fff4f0'),
+      electric: genColor('#f8df93', '#fffef4'),
       water: genColor('#b5e8ef', '#f4feff'),
       psychic: genColor('#b4a2ff', '#f7f4ff'),
+      poison: genColor('#b4a2ff', '#f7f4ff'),
       ground: genColor('#dcab88', '#fdf5ee')
     };
 
-    return colorsDict[typesName] || genColor('#d2d2d2', '#eeeeee');
+    return colorsDict[typesName] || genColor('#dadada', '#f6f6f6');
   }
 
   function imageIsLoading(): void {
