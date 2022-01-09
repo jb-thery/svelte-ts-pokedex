@@ -24,6 +24,11 @@
     }
   }
 
+  .flex {
+    display: flex;
+    align-items: center;
+  }
+
   .centered-flex {
     display: flex;
     justify-content: center;
