@@ -1,6 +1,6 @@
 {
   ".svelte-kit/build/runtime/internal/start.js": {
-    "file": "start-33a040c9.js",
+    "file": "start-dc07b06d.js",
     "src": ".svelte-kit/build/runtime/internal/start.js",
     "isEntry": true,
     "imports": [
@@ -56,7 +56,7 @@
     ]
   },
   "src/routes/pokemon/[slug].svelte": {
-    "file": "pages/pokemon/_slug_.svelte-60d466af.js",
+    "file": "pages/pokemon/_slug_.svelte-d9dcad91.js",
     "src": "src/routes/pokemon/[slug].svelte",
     "isEntry": true,
     "isDynamicEntry": true,
