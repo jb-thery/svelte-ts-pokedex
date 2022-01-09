@@ -1,0 +1,96 @@
+{
+  ".svelte-kit/build/runtime/internal/start.js": {
+    "file": "start-d6525652.js",
+    "src": ".svelte-kit/build/runtime/internal/start.js",
+    "isEntry": true,
+    "imports": [
+      "_vendor-9cf13998.js",
+      "_singletons-a42a5e91.js"
+    ],
+    "dynamicImports": [
+      "src/routes/__layout.svelte",
+      ".svelte-kit/build/components/error.svelte",
+      "src/routes/index.svelte",
+      "src/routes/pokemon/[slug].svelte"
+    ],
+    "css": [
+      "assets/start-61d1577b.css"
+    ]
+  },
+  "src/routes/__layout.svelte": {
+    "file": "pages/__layout.svelte-d56bdbe2.js",
+    "src": "src/routes/__layout.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-9cf13998.js",
+      "_stores-2ab5fa91.js"
+    ],
+    "css": [
+      "assets/pages/__layout.svelte-b5b50b0d.css"
+    ]
+  },
+  ".svelte-kit/build/components/error.svelte": {
+    "file": "error.svelte-dd2a3983.js",
+    "src": ".svelte-kit/build/components/error.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-9cf13998.js"
+    ]
+  },
+  "src/routes/index.svelte": {
+    "file": "pages/index.svelte-4c25e517.js",
+    "src": "src/routes/index.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-9cf13998.js",
+      "_Loader-b4c421be.js",
+      "_singletons-a42a5e91.js"
+    ],
+    "css": [
+      "assets/pages/index.svelte-b8798ff9.css"
+    ]
+  },
+  "src/routes/pokemon/[slug].svelte": {
+    "file": "pages/pokemon/_slug_.svelte-60d466af.js",
+    "src": "src/routes/pokemon/[slug].svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-9cf13998.js",
+      "_Loader-b4c421be.js",
+      "_stores-2ab5fa91.js",
+      "_singletons-a42a5e91.js"
+    ],
+    "css": [
+      "assets/pages/pokemon/_slug_.svelte-8975b6b0.css"
+    ]
+  },
+  "_vendor-9cf13998.js": {
+    "file": "chunks/vendor-9cf13998.js",
+    "css": [
+      "assets/vendor-d4e6e27f.css"
+    ]
+  },
+  "_singletons-a42a5e91.js": {
+    "file": "chunks/singletons-a42a5e91.js"
+  },
+  "_stores-2ab5fa91.js": {
+    "file": "chunks/stores-2ab5fa91.js",
+    "imports": [
+      "_vendor-9cf13998.js"
+    ]
+  },
+  "_Loader-b4c421be.js": {
+    "file": "chunks/Loader-b4c421be.js",
+    "imports": [
+      "_vendor-9cf13998.js",
+      "_singletons-a42a5e91.js"
+    ],
+    "css": [
+      "assets/Loader-d2dd6540.css"
+    ]
+  }
+}

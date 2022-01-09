@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="icon" href="./favicon.png" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.png" />
+
+    <meta name="theme-color" content="#fafafa" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@900&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>JB-THERY | Svelte Typescript Pokedex</title><meta name="description" content="Simple svelte typescript pokedex for testing the Svelete framework" data-svelte="svelte-h2bs1i">
+
+		
+
+		<link rel="stylesheet" href="/_app/assets/start-61d1577b.css">
+		<link rel="stylesheet" href="/_app/assets/vendor-d4e6e27f.css">
+		<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-b5b50b0d.css">
+		<link rel="stylesheet" href="/_app/assets/pages/index.svelte-b8798ff9.css">
+		<link rel="stylesheet" href="/_app/assets/Loader-d2dd6540.css">
+		<link rel="modulepreload" href="/_app/start-d6525652.js">
+		<link rel="modulepreload" href="/_app/chunks/vendor-9cf13998.js">
+		<link rel="modulepreload" href="/_app/chunks/singletons-a42a5e91.js">
+		<link rel="modulepreload" href="/_app/pages/__layout.svelte-d56bdbe2.js">
+		<link rel="modulepreload" href="/_app/chunks/stores-2ab5fa91.js">
+		<link rel="modulepreload" href="/_app/pages/index.svelte-4c25e517.js">
+		<link rel="modulepreload" href="/_app/chunks/Loader-b4c421be.js">
+
+		<script type="module">
+			import { start } from "/_app/start-d6525652.js";
+			start({
+				target: document.querySelector("#svelte"),
+				paths: {"base":"","assets":""},
+				session: {},
+				route: true,
+				spa: false,
+				trailing_slash: "never",
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("/_app/pages/__layout.svelte-d56bdbe2.js"),
+						import("/_app/pages/index.svelte-4c25e517.js")
+					],
+					url: new URL("http://prerender/"),
+					params: {}
+				}
+			});
+		</script>
+  </head>
+
+  <body>
+    <div id="svelte">
+
+
+<img class="picto" src="/pokeball.png" alt="pockeball">
+
+<main><div>
+
+<article class="app-grid"><header><h1 class="svelte-sf9o8s">Svelte Ts Pokédex</h1></header>
+
+  <section class="app-grid"><article><div class="centered-y-flex svelte-mi22sa"><label for="search"><svg viewBox="0 0 24 24" style=" width:1.5rem; height:1.5rem; fill:#929395;" class="svelte-dmmfjb"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"></path></svg></label>
+
+    <input id="search" type="text" placeholder="Filter pokemon by name" class="svelte-mi22sa">
+
+    <span class="svelte-mi22sa">200 results</span></div>
+
+  <p class="svelte-mi22sa">This list represents the order of Pokémon in the National Pokédex. Name or
+    number. Use the advanced search to find Pokémon by type, weakness, talent,
+    and more !
+  </p>
+</article></section>
+
+  <section class="app-grid"><aside class="svelte-dosiqy"></aside><aside class="svelte-dosiqy"></aside><aside class="svelte-dosiqy"></aside><aside class="svelte-dosiqy"></aside><aside class="svelte-dosiqy"></aside><aside class="svelte-dosiqy"></aside><aside class="svelte-dosiqy"></aside><aside class="svelte-dosiqy"></aside><aside class="svelte-dosiqy"></aside><aside class="svelte-dosiqy"></aside></section></article>
+
+<footer class="svelte-h57e6r"><p class="svelte-h57e6r">Pokémon data from <a href="https://pokeapi.co/" target="_blank" rel="noopener" class="svelte-h57e6r">PokéApi</a></p>
+
+  <p class="svelte-h57e6r">created with <a href="https://kit.svelte.dev/" target="_blank" rel="noopener" class="svelte-h57e6r">Svelte Framework</a></p>
+
+  <p class="svelte-h57e6r">crafterd with ❤ by Jean-Baptiste Thery | freelance frontend developper <a href="https://flameapp.fr/" target="_blank" rel="noopener" class="svelte-h57e6r">flameapp.fr</a></p>
+</footer></div>
+</main>
+
+</div>
+  </body>
+</html>
