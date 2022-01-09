@@ -22,12 +22,16 @@ const apiRequest = async <Type>({
 
 const postRequest = <Type>(url: string): Promise<Type> =>
   apiRequest<Type>({ method: 'POST', url });
+
 const getRequest = <Type>(url: string): Promise<Type> =>
   apiRequest<Type>({ method: 'GET', url });
+
 const putRequest = <Type>(url: string): Promise<Type> =>
   apiRequest<Type>({ method: 'PUT', url });
+
 const patchRequest = <Type>(url: string): Promise<Type> =>
   apiRequest<Type>({ method: 'PATCH', url });
+
 const deleteRequest = <Type>(url: string): Promise<Type> =>
   apiRequest<Type>({ method: 'DELETE', url });
 

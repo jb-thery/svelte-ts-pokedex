@@ -18,7 +18,30 @@
     h5,
     h6 {
       font-family: $heading-font;
+      margin: 0;
     }
+  }
+
+  .centered-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .centered-y-flex {
+    display: flex;
+    align-items: center;
+  }
+
+  .app-grid {
+    display: grid;
+    grid-gap: 20px;
+  }
+
+  a,
+  p,
+  i {
+    margin: 0;
   }
 
   main {

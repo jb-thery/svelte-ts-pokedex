@@ -36,11 +36,11 @@
 </section>
 
 <section class="app-grid">
-  {#each pokemons as pokemon, i}
+  {#each pokemons as pokemon}
     <PokeCard
-      listIndex={i}
+      pokemonId={pokemon.order}
       name={pokemon.name}
-      images={[pokemon.sprites.front_default, pokemon.sprites.back_default]}
+      image={pokemon.sprites.front_default}
       types={pokemon.types}
     />
   {/each}

@@ -25,36 +25,3 @@ $l: 3rem;
 
 $xl-mobile: 3.5rem;
 $xl: 3.5rem;
-
-/* GLOBAL STYLES
-*******************************************************/
-
-// helpers
-.centered-flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.centered-y-flex {
-  display: flex;
-  align-items: center;
-}
-
-.app-grid {
-  display: grid;
-  grid-gap: 20px;
-}
-
-// Reset
-a,
-p,
-i,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-}
