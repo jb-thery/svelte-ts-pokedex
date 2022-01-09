@@ -3,4 +3,4 @@ node_modules
 coverage
 config.babel
 /.svelte-kit
-
+gh-pages.js
