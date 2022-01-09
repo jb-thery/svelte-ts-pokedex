@@ -4,3 +4,4 @@
 config.babel
 /.svelte-kit
 node_modules
+gh-pages.js
