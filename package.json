@@ -1,5 +1,11 @@
 {
-  "name": "svelte-pokedex",
+  "name": "svelte-ts-pokedex",
+  "description": "Simple svelte typescript pokedex for testing the Svelete framework",
+  "author": {
+    "name": "Thery Jean-Baptiste",
+    "email": "jb.thery@flameapp.fr",
+    "url": "https://www.linkedin.com/in/jean-baptiste-thery/"
+  },
   "version": "0.0.1",
   "type": "module",
   "scripts": {

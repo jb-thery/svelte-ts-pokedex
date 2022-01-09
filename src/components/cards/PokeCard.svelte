@@ -86,7 +86,7 @@
 </script>
 
 <article
-  class="centered-y-flex"
+  class="centered-y-flex scale-on-hover"
   on:click={handleNavigation}
   style={getCardColor(pokemonTypes)}
 >

@@ -1,11 +1,15 @@
 <script>
   import 'normalize.css/normalize.css';
+  import PageTransitions from '../components/core/ThePageTransitions.svelte';
+  import { page } from '$app/stores';
 </script>
 
 <img class="picto" src="/pokeball.png" alt="pockeball" />
 
-<main class="app-grid">
-  <slot />
+<main>
+  <PageTransitions refresh={$page.url.pathname}>
+    <slot />
+  </PageTransitions>
 </main>
 
 <style lang="scss" global>
@@ -22,6 +26,12 @@
       font-family: $heading-font;
       margin: 0;
     }
+  }
+
+  a,
+  p,
+  i {
+    margin: 0;
   }
 
   .flex {
@@ -45,12 +55,6 @@
     grid-gap: 20px;
   }
 
-  a,
-  p,
-  i {
-    margin: 0;
-  }
-
   .picto {
     position: fixed;
     top: -190px;
@@ -71,6 +75,15 @@
     @media (min-width: 640px) {
       max-width: 600px;
       margin: 0 auto;
+    }
+  }
+
+  .scale-on-hover {
+    transform: scale(1);
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.02);
     }
   }
 </style>

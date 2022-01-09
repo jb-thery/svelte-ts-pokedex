@@ -6,6 +6,7 @@
   import { allPokemons, paginatedPokemons, pokemons } from '../stores/global';
   import PokeCard from '../components/cards/PokeCard.svelte';
   import Pagination from '../components/pagination/Pagination.svelte';
+  import TheFooter from '../components/core/TheFooter.svelte';
 
   let loading = true;
 
@@ -39,40 +40,44 @@
 
   <meta
     name="description"
-    content="Simple svelte typescript pokedex for testing the framework svelete"
+    content="Simple svelte typescript pokedex for testing the Svelete framework"
   />
 </svelte:head>
 
-<header>
-  <h1>Svelte Ts Pokédex</h1>
-</header>
+<article class="app-grid">
+  <header>
+    <h1>Svelte Ts Pokédex</h1>
+  </header>
 
-<section class="app-grid">
-  <SearchInput />
-</section>
+  <section class="app-grid">
+    <SearchInput />
+  </section>
 
-<section class="app-grid">
-  {#if !loading}
-    {#each $paginatedPokemons as pokemon}
-      <PokeCard
-        pokemonName={pokemon.name}
-        pokemonImage={pokemon.sprites.front_default}
-        pokemonTypes={pokemon.types}
-        pokemonPokemonId={pokemon.order}
-      />
-    {/each}
+  <section class="app-grid">
+    {#if !loading}
+      {#each $paginatedPokemons as pokemon}
+        <PokeCard
+          pokemonName={pokemon.name}
+          pokemonImage={pokemon.sprites.front_default}
+          pokemonTypes={pokemon.types}
+          pokemonPokemonId={pokemon.order}
+        />
+      {/each}
 
-    {#if $paginatedPokemons.length === 0}
-      <i class="no-results">No pokemon found 😢</i>
+      {#if $paginatedPokemons.length === 0}
+        <i class="no-results">No pokemon found 😢</i>
+      {/if}
+
+      <nav>
+        <Pagination />
+      </nav>
+    {:else}
+      <SkeletonLoaderCard />
     {/if}
+  </section>
+</article>
 
-    <nav>
-      <Pagination />
-    </nav>
-  {:else}
-    <SkeletonLoaderCard />
-  {/if}
-</section>
+<TheFooter />
 
 <style lang="scss">
   h1 {

@@ -4,6 +4,7 @@
   import { allPokemons, pokemons } from '../../stores/global';
 
   let allPokemonsBase = [];
+  let resultsLength = 200;
 
   allPokemons.subscribe((value) => {
     allPokemonsBase = value;
@@ -12,9 +13,15 @@
   function handleSearch(event) {
     const { value } = event.target;
 
-    pokemons.update(() =>
-      allPokemonsBase.filter((pokemon) => pokemon.name.includes(value))
-    );
+    pokemons.update(() => {
+      const filtered = allPokemonsBase.filter((pokemon) =>
+        pokemon.name.includes(value)
+      );
+
+      resultsLength = filtered.length;
+
+      return filtered;
+    });
   }
 </script>
 
@@ -30,6 +37,8 @@
       on:input={handleSearch}
       placeholder="Filter pokemon by name"
     />
+
+    <span>{resultsLength} results</span>
   </div>
 
   <p>
@@ -56,6 +65,11 @@
       &::placeholder {
         opacity: 0.5;
       }
+    }
+
+    span {
+      font-size: 0.9rem;
+      opacity: 0.5;
     }
   }
 

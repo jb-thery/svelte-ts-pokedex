@@ -75,9 +75,11 @@
   <article class="app-grid">
     <section class="types flex">
       <p>Pokémon</p>
-      {#each pokemon.types as type}
+      {#each pokemon.types as type, i}
         <p>
-          &nbsp;{capitalizeWord(type.type.name)}
+          &nbsp;{capitalizeWord(type.type.name)}{i < pokemon.types.length - 1
+            ? ','
+            : ''}
         </p>
       {/each}
     </section>
