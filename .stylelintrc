@@ -24,6 +24,15 @@
       }
     ]
   },
-  "ignoreFiles": ["node_modules/*", "src/assets/**", "build/**", "src/lib/styles/normalise.css"],
+  "ignoreFiles": [
+    "node_modules/*",
+    "src/assets/**",
+    "build/**",
+    "src/lib/styles/normalise.css",
+    "src/types/**",
+    "src/api/**",
+    "src/helpers/**",
+    "src/services/**"
+  ],
   "defaultSeverity": "error"
 }

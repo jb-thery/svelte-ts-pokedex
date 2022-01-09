@@ -23,11 +23,11 @@
 
   main {
     position: relative;
-    padding: 15px 30px;
+    padding: 30px;
     max-width: 100%;
 
     @media (min-width: 640px) {
-      max-width: 800px;
+      max-width: 600px;
       margin: 0 auto;
     }
   }

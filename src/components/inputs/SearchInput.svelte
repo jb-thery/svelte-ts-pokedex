@@ -13,8 +13,9 @@
   </div>
 
   <p>
-    This list represents the order of Pokémon in the National Pokédex. Name or number. Use the
-    advanced search to find Pokémon by type, weakness, talent, and more !
+    This list represents the order of Pokémon in the National Pokédex. Name or
+    number. Use the advanced search to find Pokémon by type, weakness, talent,
+    and more !
   </p>
 </article>
 

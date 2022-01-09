@@ -1,7 +1,21 @@
-<script>
+<script lang="ts">
   import PokeCard from '../components/cards/PokeCard.svelte';
   import SearchInput from '../components/inputs/SearchInput.svelte';
   import Pagination from '../components/pagination/Pagination.svelte';
+  import { onMount } from 'svelte';
+  import { getPokemon, getPokemons } from '../api/pokeApi';
+  import type { Pokemon } from '../types';
+
+  let pokemons: Array<Pokemon> = [];
+
+  onMount(async () => {
+    const response = await getPokemons();
+
+    const posmisesList = response.results.map((pokemons) =>
+      getPokemon(pokemons.name)
+    );
+    pokemons = await Promise.all(posmisesList);
+  });
 </script>
 
 <svelte:head>
@@ -22,13 +36,14 @@
 </section>
 
 <section class="app-grid">
-  <PokeCard />
-  <PokeCard />
-  <PokeCard />
-  <PokeCard />
-  <PokeCard />
-  <PokeCard />
-  <PokeCard />
+  {#each pokemons as pokemon, i}
+    <PokeCard
+      listIndex={i}
+      name={pokemon.name}
+      images={[pokemon.sprites.front_default, pokemon.sprites.back_default]}
+      types={pokemon.types}
+    />
+  {/each}
 </section>
 
 <nav>
