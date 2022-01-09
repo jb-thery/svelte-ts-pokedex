@@ -2,6 +2,8 @@
   import 'normalize.css/normalize.css';
 </script>
 
+<img class="picto" src="/pokeball.png" alt="pockeball" />
+
 <main class="app-grid">
   <slot />
 </main>
@@ -42,6 +44,18 @@
   p,
   i {
     margin: 0;
+  }
+
+  .picto {
+    position: absolute;
+    top: -190px;
+    right: -190px;
+    opacity: 0.09;
+
+    @media (min-width: 640px) {
+      top: -120px;
+      right: -120px;
+    }
   }
 
   main {
