@@ -1,18 +1,39 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
   import { onDestroy, onMount } from 'svelte';
-  import type { Types } from '../../types';
   import { capitalizeWord, listToString } from '../../helpers/globals.ts';
+  import { getPokemon } from '../../api/pokeApi';
 
-  export let pokemonId: string;
-  export let name: string;
-  export let image: string;
-  export let types: Types[];
+  export let pokemonName: string;
 
+  let pokemonImage = null;
+  let pokemonTypes = null;
+  let pokemonPokemonId = null;
+
+  let loading = true;
   let interval = null;
   let flipImage = 1;
 
   onMount(() => {
+    getPokemonInfos();
+    animePokemonImage();
+  });
+
+  onDestroy(() => {
+    clearInterval(interval);
+  });
+
+  async function getPokemonInfos() {
+    const { sprites, types, order } = await getPokemon(pokemonName);
+
+    pokemonImage = sprites.front_default;
+    pokemonTypes = types;
+    pokemonPokemonId = order;
+
+    loading = false;
+  }
+
+  function animePokemonImage() {
     let count = 0;
 
     interval = setInterval(() => {
@@ -23,14 +44,10 @@
       }
       count++;
     }, 1000);
-  });
-
-  onDestroy(() => {
-    clearInterval(interval);
-  });
+  }
 
   function handleNavigation(): void {
-    goto('/pokemon/test');
+    goto(`/pokemon/${name}`);
   }
 
   function displayIndex(id: string | number): string | number {
@@ -41,7 +58,7 @@
   }
 
   function getCardColor(): string {
-    const typesName = types.map((type) => type.type.name).shift();
+    const typesName = pokemonTypes.map((type) => type.type.name).shift();
 
     const genColor = (background, text) =>
       `background-color: ${background}; color: ${text}`;
@@ -56,28 +73,32 @@
   }
 </script>
 
-<article
-  class="centered-y-flex"
-  on:click={handleNavigation}
-  style={getCardColor()}
->
-  <img
-    class="pokemon-image"
-    src={image}
-    alt={name}
-    style="transform: scaleX({flipImage})"
-  />
+{#if !loading}
+  <article
+    class="centered-y-flex"
+    on:click={handleNavigation}
+    style={getCardColor()}
+  >
+    <img
+      class="pokemon-image"
+      src={pokemonImage}
+      alt={pokemonName}
+      style="transform: scaleX({flipImage})"
+    />
 
-  <div class="infos">
-    <h2>{capitalizeWord(name)}</h2>
+    <div class="infos">
+      <h2>{capitalizeWord(pokemonName)}</h2>
 
-    <h3 class="types">
-      {listToString(types.map((type) => capitalizeWord(type.type.name)))}
-    </h3>
-  </div>
+      <h3 class="types">
+        {listToString(
+          pokemonTypes.map((type) => capitalizeWord(type.type.name))
+        )}
+      </h3>
+    </div>
 
-  <i class="list-index"><span>#</span>{displayIndex(pokemonId)}</i>
-</article>
+    <i class="list-index"><span>#</span>{displayIndex(pokemonPokemonId)}</i>
+  </article>
+{/if}
 
 <style lang="scss">
   article {

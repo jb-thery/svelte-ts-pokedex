@@ -24,6 +24,11 @@
     }
   }
 
+  body {
+    position: relative;
+    overflow-x: hidden;
+  }
+
   .centered-flex {
     display: flex;
     justify-content: center;
@@ -60,7 +65,7 @@
 
   main {
     position: relative;
-    padding: 30px;
+    padding: 60px 30px;
     max-width: 100%;
 
     @media (min-width: 640px) {

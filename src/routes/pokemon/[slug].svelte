@@ -1,5 +1,5 @@
 <svelte:head>
-  <title>Pokemon slug</title>
+  <title>JB-THERY |Pokemon slug</title>
 
   <meta
     name="description"

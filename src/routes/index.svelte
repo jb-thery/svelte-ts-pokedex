@@ -3,23 +3,20 @@
   import SearchInput from '../components/inputs/SearchInput.svelte';
   import Pagination from '../components/pagination/Pagination.svelte';
   import { onMount } from 'svelte';
-  import { getPokemon, getPokemons } from '../api/pokeApi';
-  import type { Pokemon } from '../types';
+  import { getPokemons } from '../api/pokeApi';
+  import type { Pokemons } from '../types';
 
-  let pokemons: Array<Pokemon> = [];
+  let pokemons: Array<Pokemons> = [];
 
   onMount(async () => {
-    const response = await getPokemons();
+    const { results } = await getPokemons();
 
-    const posmisesList = response.results.map((pokemons) =>
-      getPokemon(pokemons.name)
-    );
-    pokemons = await Promise.all(posmisesList);
+    pokemons = results;
   });
 </script>
 
 <svelte:head>
-  <title>Svelte Typescript Pokedex</title>
+  <title>JB-THERY | Svelte Typescript Pokedex</title>
 
   <meta
     name="description"
@@ -37,12 +34,7 @@
 
 <section class="app-grid">
   {#each pokemons as pokemon}
-    <PokeCard
-      pokemonId={pokemon.order}
-      name={pokemon.name}
-      image={pokemon.sprites.front_default}
-      types={pokemon.types}
-    />
+    <PokeCard pokemonName={pokemon.name} />
   {/each}
 </section>
 
