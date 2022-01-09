@@ -3,8 +3,10 @@
   import { goto } from '$app/navigation';
   import Icon from 'mdi-svelte';
 
+  const dev = process.env.NODE_ENV === 'development';
+
   function handleNavigation() {
-    goto('/');
+    goto(dev ? '/' : '/svelte-ts-pokedex');
   }
 </script>
 

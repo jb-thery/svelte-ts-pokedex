@@ -4,6 +4,7 @@
   import { capitalizeWord, listToString } from '../../helpers/globals.ts';
   import { currentPage, pokemons } from '../../stores/global';
   import Loader from '../loaders/Loader.svelte';
+  import { base } from '$app/paths';
 
   export let pokemonName = null;
   export let pokemonImage = null;
@@ -44,7 +45,7 @@
   }
 
   function handleNavigation(): void {
-    goto(`/pokemon/${pokemonName}`);
+    goto(`${base}/pokemon/${pokemonName}`);
   }
 
   function displayIndex(id: string | number): string | number {
