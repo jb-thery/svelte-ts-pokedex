@@ -50,7 +50,7 @@
     return id;
   }
 
-  function getCardColor(): string {
+  function getCardColor(pokemonTypes): string {
     const typesName = pokemonTypes.map((type) => type.type.name).shift();
 
     const genColor = (background, text) =>
@@ -59,7 +59,9 @@
     const colorsDict = {
       grass: genColor('#b3e1b2', '#f1fff6'),
       fire: genColor('#fcd2b1', '#fff4f0'),
-      water: genColor('#b5e8ef', '#f4feff')
+      water: genColor('#b5e8ef', '#f4feff'),
+      psychic: genColor('#b4a2ff', '#f7f4ff'),
+      ground: genColor('#dcab88', '#fdf5ee')
     };
 
     return colorsDict[typesName] || genColor('#d2d2d2', '#eeeeee');
@@ -79,7 +81,7 @@
 <article
   class="centered-y-flex"
   on:click={handleNavigation}
-  style={getCardColor()}
+  style={getCardColor(pokemonTypes)}
 >
   <img
     style={imagesStyles(imageLoading, flipImage)}

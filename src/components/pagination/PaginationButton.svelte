@@ -3,12 +3,18 @@
 
   export let page: number;
 
+  let activePage = 0;
+
+  currentPage.subscribe((value) => {
+    activePage = value;
+  });
+
   function handleChangePage() {
     currentPage.set(page);
   }
 </script>
 
-<button on:click={handleChangePage}>
+<button on:click={handleChangePage} class={page === activePage && 'active'}>
   <span>{page + 1}</span>
 </button>
 
@@ -27,5 +33,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .active {
+    background: $red;
+    color: $white;
   }
 </style>
