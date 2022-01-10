@@ -1,6 +1,6 @@
 {
   ".svelte-kit/build/runtime/internal/start.js": {
-    "file": "start-e241a0d4.js",
+    "file": "start-2b14a3cd.js",
     "src": ".svelte-kit/build/runtime/internal/start.js",
     "isEntry": true,
     "imports": [
@@ -56,7 +56,7 @@
     ]
   },
   "src/routes/pokemon/[slug].svelte": {
-    "file": "pages/pokemon/_slug_.svelte-d9dcad91.js",
+    "file": "pages/pokemon/_slug_.svelte-987c9390.js",
     "src": "src/routes/pokemon/[slug].svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -67,7 +67,7 @@
       "_singletons-a42a5e91.js"
     ],
     "css": [
-      "assets/pages/pokemon/_slug_.svelte-8975b6b0.css"
+      "assets/pages/pokemon/_slug_.svelte-c3f4e121.css"
     ]
   },
   "_vendor-9cf13998.js": {
