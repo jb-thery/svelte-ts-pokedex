@@ -6,7 +6,7 @@
     "email": "jb.thery@flameapp.fr",
     "url": "https://www.linkedin.com/in/jean-baptiste-thery/"
   },
-  "version": "0.0.1",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
     "build": "svelte-kit build",
