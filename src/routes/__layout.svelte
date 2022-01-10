@@ -75,12 +75,13 @@
 
   main {
     position: relative;
-    padding: 60px 30px;
+    padding: 30px 15px;
     max-width: 100%;
 
     @media (min-width: 640px) {
       max-width: 600px;
       margin: 0 auto;
+      padding: 60px 30px;
     }
   }
 

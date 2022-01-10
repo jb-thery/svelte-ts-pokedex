@@ -15,7 +15,7 @@
 
     pokemons.update(() => {
       const filtered = allPokemonsBase.filter((pokemon) =>
-        pokemon.name.includes(value)
+        pokemon.name.toLowerCase().trim().includes(value.toLowerCase().trim())
       );
 
       resultsLength = filtered.length;
@@ -64,12 +64,21 @@
 
       &::placeholder {
         opacity: 0.5;
+        font-size: 0.9rem;
+
+        @media (min-width: 640px) {
+          font-size: 0.9rem;
+        }
       }
     }
 
     span {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       opacity: 0.5;
+
+      @media (min-width: 640px) {
+        font-size: 0.9rem;
+      }
     }
   }
 
