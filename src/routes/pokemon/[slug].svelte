@@ -168,7 +168,7 @@
       <div class="moves">
         <ul>
           {#each pokemon.moves as move}
-            <li>{move.move.name}</li>
+            <li>{capitalizeWord(move.move.name)}</li>
           {/each}
         </ul>
       </div>
@@ -228,7 +228,10 @@
     }
 
     div {
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
       i {
         display: block;

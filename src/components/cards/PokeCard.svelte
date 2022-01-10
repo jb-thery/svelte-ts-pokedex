@@ -2,7 +2,7 @@
   import { goto } from '$app/navigation';
   import { onDestroy, onMount } from 'svelte';
   import { capitalizeWord, listToString } from '../../helpers/globals.ts';
-  import { currentPage, pokemons } from '../../stores/global';
+  import { currentPage } from '../../stores/global';
   import Loader from '../loaders/Loader.svelte';
   import { base } from '$app/paths';
 
@@ -24,10 +24,6 @@
   });
 
   currentPage.subscribe(() => {
-    imageLoading = true;
-  });
-
-  pokemons.subscribe(() => {
     imageLoading = true;
   });
 

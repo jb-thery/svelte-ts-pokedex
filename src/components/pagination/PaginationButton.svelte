@@ -10,6 +10,7 @@
   });
 
   function handleChangePage() {
+    window.scrollTo(0, 0);
     currentPage.set(page);
   }
 </script>

@@ -1,7 +1,7 @@
 <script>
   import Icon from 'mdi-svelte';
   import { mdiMagnify } from '@mdi/js';
-  import { allPokemons, pokemons } from '../../stores/global';
+  import { allPokemons, currentPage, pokemons } from '../../stores/global';
 
   let allPokemonsBase = [];
   let resultsLength = 200;
@@ -12,6 +12,8 @@
 
   function handleSearch(event) {
     const { value } = event.target;
+
+    currentPage.set(0);
 
     pokemons.update(() => {
       const filtered = allPokemonsBase.filter((pokemon) =>

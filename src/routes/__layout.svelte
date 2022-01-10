@@ -32,6 +32,8 @@
       font-family: $heading-font;
       margin: 0;
     }
+
+    scroll-behavior: smooth;
   }
 
   a,
