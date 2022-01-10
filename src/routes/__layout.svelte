@@ -2,9 +2,15 @@
   import 'normalize.css/normalize.css';
   import PageTransitions from '../components/core/ThePageTransitions.svelte';
   import { page } from '$app/stores';
+
+  const dev = process.env.NODE_ENV === 'development';
 </script>
 
-<img class="picto" src="/pokeball.png" alt="pockeball" />
+<img
+  class="picto"
+  src={dev ? '/pokeball.png' : '/svelte-ts-pokedex/pokeball.png'}
+  alt="pockeball"
+/>
 
 <main>
   <PageTransitions refresh={$page.url.pathname}>
@@ -69,12 +75,13 @@
 
   main {
     position: relative;
-    padding: 60px 30px;
+    padding: 30px 15px;
     max-width: 100%;
 
     @media (min-width: 640px) {
       max-width: 600px;
       margin: 0 auto;
+      padding: 60px 30px;
     }
   }
 

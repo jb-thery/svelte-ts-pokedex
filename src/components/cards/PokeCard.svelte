@@ -4,6 +4,7 @@
   import { capitalizeWord, listToString } from '../../helpers/globals.ts';
   import { currentPage, pokemons } from '../../stores/global';
   import Loader from '../loaders/Loader.svelte';
+  import { base } from '$app/paths';
 
   export let pokemonName = null;
   export let pokemonImage = null;
@@ -44,7 +45,7 @@
   }
 
   function handleNavigation(): void {
-    goto(`/pokemon/${pokemonName}`);
+    goto(`${base}/pokemon/${pokemonName}`);
   }
 
   function displayIndex(id: string | number): string | number {
@@ -120,8 +121,13 @@
     cursor: pointer;
 
     .pokemon-image {
-      width: 90px;
-      height: 90px;
+      width: 70px;
+      height: 70px;
+
+      @media (min-width: 640px) {
+        width: 90px;
+        height: 90px;
+      }
     }
 
     .infos {
@@ -129,10 +135,18 @@
 
       h2 {
         color: $white;
-        font-size: $l-mobile;
+        font-size: 1.9rem;
 
         @media (min-width: 640px) {
           font-size: $l;
+        }
+      }
+
+      h3 {
+        font-size: 1rem;
+
+        @media (min-width: 640px) {
+          font-size: 1.5rem;
         }
       }
 
@@ -145,14 +159,22 @@
     i {
       font-family: $heading-font;
       position: absolute;
-      bottom: 0;
+      bottom: 5px;
       right: 20px;
-      font-size: $l;
+      font-size: 1.5rem;
       font-style: normal;
       letter-spacing: -2px;
 
+      @media (min-width: 640px) {
+        font-size: $l;
+      }
+
       span {
-        font-size: $m;
+        font-size: 1.3rem;
+
+        @media (min-width: 640px) {
+          font-size: $m;
+        }
       }
     }
   }
