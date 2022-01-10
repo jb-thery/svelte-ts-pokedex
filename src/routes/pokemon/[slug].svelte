@@ -182,9 +182,13 @@
 
 <style lang="scss">
   h1 {
-    font-size: $xl;
+    font-size: 2.4rem;
     color: $red;
     margin-left: 20px;
+
+    @media (min-width: 640px) {
+      font-size: $xl;
+    }
   }
 
   h2 {
@@ -203,7 +207,13 @@
   .types {
     p {
       font-family: $heading-font;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
+      margin-top: 10px;
+
+      @media (min-width: 640px) {
+        margin-top: 0;
+        font-size: 1.5rem;
+      }
     }
   }
 
